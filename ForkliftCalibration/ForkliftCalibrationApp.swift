@@ -7,7 +7,7 @@ import SwiftUI
 struct ForkliftCalibrationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
