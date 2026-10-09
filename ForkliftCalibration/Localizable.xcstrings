@@ -199,6 +199,39 @@
         }
       }
     },
+    "input.clear" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clear"
+          }
+        }
+      }
+    },
+    "input.invalid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a number, like 12.5"
+          }
+        }
+      }
+    },
+    "keyboard.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
     "placeholder.message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -250,6 +283,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ must be more than 0."
+          }
+        }
+      }
+    },
+    "unit.millimeters" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mm"
           }
         }
       }
