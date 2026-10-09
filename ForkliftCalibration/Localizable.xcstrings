@@ -45,6 +45,72 @@
         }
       }
     },
+    "distanceScale.field.computer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Computer"
+          }
+        }
+      }
+    },
+    "distanceScale.field.magnification" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Magnification"
+          }
+        }
+      }
+    },
+    "distanceScale.field.measured" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Measured"
+          }
+        }
+      }
+    },
+    "distanceScale.result.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corrected Magnification"
+          }
+        }
+      }
+    },
+    "distanceScale.status.over" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ mm off. More than the 5 mm limit."
+          }
+        }
+      }
+    },
+    "distanceScale.status.within" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Within the 5 mm limit."
+          }
+        }
+      }
+    },
     "home.angleCorrection.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -151,6 +217,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Not Built Yet"
+          }
+        }
+      }
+    },
+    "result.enter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter %@ to see the result."
+          }
+        }
+      }
+    },
+    "result.fix" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fix %@ to see the result."
+          }
+        }
+      }
+    },
+    "result.notAboveZero" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ must be more than 0."
           }
         }
       }
