@@ -43,7 +43,7 @@ struct ResultBand: View {
         .padding(.top, 16)
         .padding(.horizontal, 24)
         .padding(.bottom, 20)
-        .background(Color.resultSurface)
+        .background(Color.resultSurface, ignoresSafeAreaEdges: [])
         .overlay {
             if case .error = content {
                 Rectangle()
@@ -59,7 +59,7 @@ struct ResultBand: View {
             .monospacedDigit()
             .tracking(-2)
             .lineLimit(1)
-            .minimumScaleFactor(0.4)
+            .minimumScaleFactor(0.3)
             .foregroundStyle(Color.resultPrimaryText)
 
         Text(verbatim: formula)

@@ -4,8 +4,10 @@
 import Foundation
 
 enum NumberDisplay {
+    private static let resultDecimals = 15
+
     static func result(_ value: Double) -> String {
-        value.formatted(.number.precision(.fractionLength(4)).grouping(.never))
+        value.formatted(.number.precision(.fractionLength(resultDecimals)).grouping(.never))
     }
 
     static func millimeters(_ value: Double) -> String {
