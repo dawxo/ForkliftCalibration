@@ -4,9 +4,9 @@
 import SwiftUI
 
 struct DistanceScaleView: View {
-    @State private var measured = ""
-    @State private var computer = ""
-    @State private var magnification = ""
+    @AppStorage("distanceScale.measured") private var measured = ""
+    @AppStorage("distanceScale.computer") private var computer = ""
+    @AppStorage("distanceScale.magnification") private var magnification = ""
     @FocusState private var focusedField: DistanceScale.Field?
 
     var body: some View {
