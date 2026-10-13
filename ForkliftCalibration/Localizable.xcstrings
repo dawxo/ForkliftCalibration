@@ -375,6 +375,17 @@
         }
       }
     },
+    "unit.meters" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m"
+          }
+        }
+      }
+    },
     "unit.millimeters" : {
       "extractionState" : "manual",
       "localizations" : {

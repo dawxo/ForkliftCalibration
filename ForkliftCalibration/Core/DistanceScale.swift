@@ -19,9 +19,10 @@ enum DistanceScale {
         let correctedMagnification: Double
         let differenceMillimeters: Double
 
-        init(measured: Double, computer: Double, magnification: Double) {
-            correctedMagnification = measured / computer * magnification
-            differenceMillimeters = (measured - computer).roundedToTenth()
+        init(measuredMeters: Double, computerMeters: Double, magnification: Double) {
+            correctedMagnification = measuredMeters / computerMeters * magnification
+            differenceMillimeters =
+                (measuredMeters - computerMeters).metersToMillimeters().roundedToTenth()
         }
 
         var isWithinLimit: Bool {
@@ -37,7 +38,11 @@ enum DistanceScale {
         switch (measured.positiveValue, computer.positiveValue, magnification.positiveValue) {
         case (.success(let measured), .success(let computer), .success(let magnification)):
             .calculated(
-                Calculation(measured: measured, computer: computer, magnification: magnification))
+                Calculation(
+                    measuredMeters: measured,
+                    computerMeters: computer,
+                    magnification: magnification
+                ))
         case (.failure(let problem), _, _): .problem(.measured, problem)
         case (_, .failure(let problem), _): .problem(.computer, problem)
         case (_, _, .failure(let problem)): .problem(.magnification, problem)

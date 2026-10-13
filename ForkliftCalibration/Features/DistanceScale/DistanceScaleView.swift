@@ -19,8 +19,8 @@ struct DistanceScaleView: View {
                 DistanceScaleHowToMeasureSheet()
             }
 
-            inputCard(.measured, text: $measured, unit: .unitMillimeters)
-            inputCard(.computer, text: $computer, unit: .unitMillimeters)
+            inputCard(.measured, text: $measured, unit: .unitMeters)
+            inputCard(.computer, text: $computer, unit: .unitMeters)
 
             Text(.distanceScaleFieldMagnification)
                 .font(.footnote)

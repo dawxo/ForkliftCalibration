@@ -129,7 +129,7 @@ extension ResultBand.Content {
         label: .distanceScaleResultLabel,
         content: .result(
             value: "1.4230",
-            formula: "10002 ÷ 10000 × 1.421295298592529",
+            formula: "10.002 ÷ 10.000 × 1.421295298592529",
             status: .pass(.distanceScaleStatusWithin)
         )
     )
@@ -140,7 +140,7 @@ extension ResultBand.Content {
         label: .distanceScaleResultLabel,
         content: .result(
             value: "1.4230",
-            formula: "10012 ÷ 10000 × 1.421295298592529",
+            formula: "10.012 ÷ 10.000 × 1.421295298592529",
             status: .fail(.distanceScaleStatusOver("12"))
         )
     )
