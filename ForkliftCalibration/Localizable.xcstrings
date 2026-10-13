@@ -78,6 +78,72 @@
         }
       }
     },
+    "distanceScale.howTo.computerLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Computer: 10 m run →"
+          }
+        }
+      }
+    },
+    "distanceScale.howTo.step1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark the floor at one wheel before the run."
+          }
+        }
+      }
+    },
+    "distanceScale.howTo.step2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run the 10 m move."
+          }
+        }
+      }
+    },
+    "distanceScale.howTo.step3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark the same wheel where it stopped."
+          }
+        }
+      }
+    },
+    "distanceScale.howTo.step4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Measure between the marks. Within 5 mm of the computer passes."
+          }
+        }
+      }
+    },
+    "distanceScale.howTo.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 m run, floor marks"
+          }
+        }
+      }
+    },
     "distanceScale.result.label" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -199,6 +265,17 @@
         }
       }
     },
+    "howToMeasure.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to measure"
+          }
+        }
+      }
+    },
     "input.clear" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -283,6 +360,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ must be more than 0."
+          }
+        }
+      }
+    },
+    "sheet.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
           }
         }
       }

@@ -12,6 +12,10 @@ struct DistanceScaleView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
+                HowToMeasureButton(thumbnail: .distanceRun, subtitle: .distanceScaleHowToSubtitle) {
+                    DistanceScaleHowToMeasureSheet()
+                }
+
                 inputCard(.measured, text: $measured, unit: .unitMillimeters)
                 inputCard(.computer, text: $computer, unit: .unitMillimeters)
 
