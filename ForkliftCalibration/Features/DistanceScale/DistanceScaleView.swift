@@ -10,46 +10,27 @@ struct DistanceScaleView: View {
     @FocusState private var focusedField: DistanceScale.Field?
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
-                HowToMeasureButton(thumbnail: .distanceRun, subtitle: .distanceScaleHowToSubtitle) {
-                    DistanceScaleHowToMeasureSheet()
-                }
-
-                inputCard(.measured, text: $measured, unit: .unitMillimeters)
-                inputCard(.computer, text: $computer, unit: .unitMillimeters)
-
-                Text(.distanceScaleFieldMagnification)
-                    .font(.footnote)
-                    .fontWeight(.semibold)
-                    .textCase(.uppercase)
-                    .foregroundStyle(Color.secondaryText)
-                    .padding(.top, 16)
-                    .padding(.horizontal, 20)
-
-                inputCard(.magnification, text: $magnification)
+        CalculatorScreen(
+            title: CalculatorRoute.distanceScale.title,
+            resultBand: ResultBand(label: .distanceScaleResultLabel, content: bandContent),
+            focusedField: $focusedField
+        ) {
+            HowToMeasureButton(thumbnail: .distanceRun, subtitle: .distanceScaleHowToSubtitle) {
+                DistanceScaleHowToMeasureSheet()
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
-        }
-        .scrollDismissesKeyboard(.interactively)
-        .onTapGesture {
-            focusedField = nil
-        }
-        .safeAreaInset(edge: .top, spacing: 0) {
-            ResultBand(label: .distanceScaleResultLabel, content: bandContent)
-        }
-        .background(Color.appBackground)
-        .navigationTitle(CalculatorRoute.distanceScale.title)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button(.keyboardDone) {
-                    focusedField = nil
-                }
+
+            inputCard(.measured, text: $measured, unit: .unitMillimeters)
+            inputCard(.computer, text: $computer, unit: .unitMillimeters)
+
+            Text(.distanceScaleFieldMagnification)
+                .font(.footnote)
                 .fontWeight(.semibold)
-            }
+                .textCase(.uppercase)
+                .foregroundStyle(Color.secondaryText)
+                .padding(.top, 16)
+                .padding(.horizontal, 20)
+
+            inputCard(.magnification, text: $magnification)
         }
     }
 
@@ -82,7 +63,7 @@ struct DistanceScaleView: View {
                 status: status(for: calculation)
             )
         case .problem(let field, let problem):
-            return message(for: problem, in: field)
+            return .problem(problem, in: field.label)
         }
     }
 
@@ -92,22 +73,6 @@ struct DistanceScaleView: View {
         }
         let difference = NumberDisplay.millimeters(abs(calculation.differenceMillimeters))
         return .fail(.distanceScaleStatusOver(difference))
-    }
-
-    private func message(
-        for problem: InputProblem,
-        in field: DistanceScale.Field
-    ) -> ResultBand.Content {
-        let fieldName = String(localized: field.label)
-
-        switch problem {
-        case .empty:
-            return .instruction(.resultEnter(fieldName))
-        case .notANumber:
-            return .error(.resultFix(fieldName))
-        case .notAboveZero:
-            return .error(.resultNotAboveZero(fieldName))
-        }
     }
 }
 

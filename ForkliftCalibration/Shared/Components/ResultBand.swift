@@ -109,6 +109,21 @@ struct ResultBand: View {
     }
 }
 
+extension ResultBand.Content {
+    static func problem(_ problem: InputProblem, in fieldLabel: LocalizedStringResource) -> Self {
+        let fieldName = String(localized: fieldLabel)
+
+        switch problem {
+        case .empty:
+            return .instruction(.resultEnter(fieldName))
+        case .notANumber:
+            return .error(.resultFix(fieldName))
+        case .notAboveZero:
+            return .error(.resultNotAboveZero(fieldName))
+        }
+    }
+}
+
 #Preview("Within limit") {
     ResultBand(
         label: .distanceScaleResultLabel,
