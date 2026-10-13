@@ -50,6 +50,7 @@ struct ResultBand: View {
                     .strokeBorder(Color.resultFail, lineWidth: 3)
             }
         }
+        .dynamicTypeSize(...DynamicTypeSize.accessibility1)
     }
 
     @ViewBuilder
