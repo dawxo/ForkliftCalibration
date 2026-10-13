@@ -21,7 +21,7 @@ enum DistanceScale {
 
         init(measured: Double, computer: Double, magnification: Double) {
             correctedMagnification = measured / computer * magnification
-            differenceMillimeters = ((measured - computer) * 10).rounded() / 10
+            differenceMillimeters = (measured - computer).roundedToTenth()
         }
 
         var isWithinLimit: Bool {
