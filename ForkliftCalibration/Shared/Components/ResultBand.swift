@@ -5,7 +5,12 @@ import SwiftUI
 
 struct ResultBand: View {
     enum Content {
-        case result(value: String, formula: String, status: Status? = nil)
+        case result(
+            value: String,
+            unit: LocalizedStringResource? = nil,
+            formula: String,
+            status: Status? = nil
+        )
         case instruction(LocalizedStringResource)
         case error(LocalizedStringResource)
     }
@@ -28,8 +33,8 @@ struct ResultBand: View {
                 .foregroundStyle(Color.resultSecondaryText)
 
             switch content {
-            case .result(let value, let formula, let status):
-                result(value: value, formula: formula, status: status)
+            case .result(let value, let unit, let formula, let status):
+                result(value: value, unit: unit, formula: formula, status: status)
             case .instruction(let text):
                 message(text)
             case .error(let text):
@@ -54,14 +59,28 @@ struct ResultBand: View {
     }
 
     @ViewBuilder
-    private func result(value: String, formula: String, status: Status?) -> some View {
-        Text(verbatim: value)
-            .font(.system(size: 88, weight: .bold))
-            .monospacedDigit()
-            .tracking(-2)
-            .lineLimit(1)
-            .minimumScaleFactor(0.3)
-            .foregroundStyle(Color.resultPrimaryText)
+    private func result(
+        value: String,
+        unit: LocalizedStringResource?,
+        formula: String,
+        status: Status?
+    ) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: 10) {
+            Text(verbatim: value)
+                .font(.system(size: 88, weight: .bold))
+                .monospacedDigit()
+                .tracking(-2)
+                .lineLimit(1)
+                .minimumScaleFactor(0.3)
+                .foregroundStyle(Color.resultPrimaryText)
+
+            if let unit {
+                Text(unit)
+                    .font(.system(size: 30, weight: .semibold))
+                    .foregroundStyle(Color.resultSecondaryText)
+                    .layoutPriority(1)
+            }
+        }
 
         Text(verbatim: formula)
             .font(.body.monospaced())
@@ -142,6 +161,18 @@ extension ResultBand.Content {
             value: "1.4230",
             formula: "10.012 ÷ 10.000 × 1.421295298592529",
             status: .fail(.distanceScaleStatusOver("12"))
+        )
+    )
+}
+
+#Preview("With unit") {
+    ResultBand(
+        label: .leftRightCheckResultLabel,
+        content: .result(
+            value: "8",
+            unit: .unitMillimeters,
+            formula: "2.003 − 1.995",
+            status: .fail(.leftRightCheckStatusLeftFarther)
         )
     )
 }

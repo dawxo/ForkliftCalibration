@@ -43,9 +43,11 @@ struct HomeView: View {
             .navigationTitle(.homeTitle)
             .navigationDestination(for: CalculatorRoute.self) { route in
                 switch route {
+                case .leftRightCheck:
+                    LeftRightCheckView()
                 case .distanceScale:
                     DistanceScaleView()
-                case .angleCorrection, .leftRightCheck, .offset:
+                case .angleCorrection, .offset:
                     ContentUnavailableView(
                         .placeholderTitle,
                         systemImage: "hammer",

@@ -309,6 +309,149 @@
         }
       }
     },
+    "leftRightCheck.adjust.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adjust, then run again"
+          }
+        }
+      }
+    },
+    "leftRightCheck.field.left" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left wheel"
+          }
+        }
+      }
+    },
+    "leftRightCheck.field.right" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Right wheel"
+          }
+        }
+      }
+    },
+    "leftRightCheck.howTo.step1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mark a start line at both front wheels."
+          }
+        }
+      }
+    },
+    "leftRightCheck.howTo.step2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run the automated move."
+          }
+        }
+      }
+    },
+    "leftRightCheck.howTo.step3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Measure how far each wheel traveled from the start line."
+          }
+        }
+      }
+    },
+    "leftRightCheck.howTo.step4" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter both distances. Within 5 mm passes."
+          }
+        }
+      }
+    },
+    "leftRightCheck.howTo.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left and right wheel travel"
+          }
+        }
+      }
+    },
+    "leftRightCheck.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next: 10 m run"
+          }
+        }
+      }
+    },
+    "leftRightCheck.result.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left/Right Difference"
+          }
+        }
+      }
+    },
+    "leftRightCheck.status.leftFarther" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left went farther. Over the 5 mm limit."
+          }
+        }
+      }
+    },
+    "leftRightCheck.status.rightFarther" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Right went farther. Over the 5 mm limit."
+          }
+        }
+      }
+    },
+    "leftRightCheck.status.within" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Within the 5 mm limit."
+          }
+        }
+      }
+    },
     "placeholder.message" : {
       "extractionState" : "manual",
       "localizations" : {
