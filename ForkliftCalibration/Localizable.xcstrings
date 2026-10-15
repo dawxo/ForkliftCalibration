@@ -1,6 +1,138 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "angleCorrection.field.amount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amount"
+          }
+        }
+      }
+    },
+    "angleCorrection.field.wheelbase" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wheelbase"
+          }
+        }
+      }
+    },
+    "angleCorrection.legend.offset" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offset from the line"
+          }
+        }
+      }
+    },
+    "angleCorrection.legend.zeroLine" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "0° line"
+          }
+        }
+      }
+    },
+    "angleCorrection.result.chooseUnderOrOver" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose under or over."
+          }
+        }
+      }
+    },
+    "angleCorrection.result.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corrected Wheelbase"
+          }
+        }
+      }
+    },
+    "angleCorrection.spinDirection.clockwise" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clockwise"
+          }
+        }
+      }
+    },
+    "angleCorrection.spinDirection.counterclockwise" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Counterclockwise"
+          }
+        }
+      }
+    },
+    "angleCorrection.spinOutcome.over" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Over"
+          }
+        }
+      }
+    },
+    "angleCorrection.spinOutcome.stoppedShort" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stopped short"
+          }
+        }
+      }
+    },
+    "angleCorrection.spinOutcome.under" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Under"
+          }
+        }
+      }
+    },
+    "angleCorrection.spinOutcome.wentPast" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Went past"
+          }
+        }
+      }
+    },
     "calculator.angleCorrection.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -474,24 +606,13 @@
         }
       }
     },
-    "placeholder.message" : {
+    "result.aboveMaximum" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This hasn't been built yet."
-          }
-        }
-      }
-    },
-    "placeholder.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Not Built Yet"
+            "value" : "%1$@ can't be more than %2$@."
           }
         }
       }
@@ -547,6 +668,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Done"
+          }
+        }
+      }
+    },
+    "unit.degrees" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "degrees"
           }
         }
       }

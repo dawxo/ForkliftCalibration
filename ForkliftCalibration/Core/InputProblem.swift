@@ -6,4 +6,5 @@ enum InputProblem: Error {
     case notANumber
     case notAboveZero
     case negative
+    case aboveMaximum(Double)
 }

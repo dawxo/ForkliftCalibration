@@ -141,6 +141,8 @@ extension ResultBand.Content {
             return .error(.resultNotAboveZero(fieldName))
         case .negative:
             return .error(.resultNegative(fieldName))
+        case .aboveMaximum(let maximum):
+            return .error(.resultAboveMaximum(fieldName, maximum.formatted()))
         }
     }
 }
