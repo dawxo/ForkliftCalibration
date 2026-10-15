@@ -39,6 +39,7 @@ struct NumberInputCard: View {
                         Text(unit)
                             .font(.title3)
                             .foregroundStyle(Color.secondaryText)
+                            .fixedSize()
                     }
                 }
             }
