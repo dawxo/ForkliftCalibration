@@ -21,15 +21,6 @@ struct DistanceScaleView: View {
 
             inputCard(.measured, text: $measured, unit: .unitMeters)
             inputCard(.computer, text: $computer, unit: .unitMeters)
-
-            Text(.distanceScaleFieldMagnification)
-                .font(.footnote)
-                .fontWeight(.semibold)
-                .textCase(.uppercase)
-                .foregroundStyle(Color.secondaryText)
-                .padding(.top, 16)
-                .padding(.horizontal, 20)
-
             inputCard(.magnification, text: $magnification)
         }
     }
