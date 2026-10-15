@@ -9,6 +9,9 @@ struct NumberInputCard: View {
     @Binding var text: String
     var isFocused = false
 
+    @ScaledMetric(relativeTo: .title) private var shortValueFontSize = 26.0
+    @ScaledMetric(relativeTo: .title) private var longValueFontSize = 22.0
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             card
@@ -81,7 +84,7 @@ struct NumberInputCard: View {
     }
 
     private var valueFontSize: CGFloat {
-        text.count > 10 ? 22 : 26
+        text.count > 10 ? longValueFontSize : shortValueFontSize
     }
 
     private var clearButton: some View {
