@@ -452,6 +452,28 @@
         }
       }
     },
+    "offset.field.value" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Value"
+          }
+        }
+      }
+    },
+    "offset.result.label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adjusted Value"
+          }
+        }
+      }
+    },
     "placeholder.message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -492,6 +514,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fix %@ to see the result."
+          }
+        }
+      }
+    },
+    "result.negative" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ can't be negative."
           }
         }
       }

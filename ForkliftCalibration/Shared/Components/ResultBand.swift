@@ -139,6 +139,8 @@ extension ResultBand.Content {
             return .error(.resultFix(fieldName))
         case .notAboveZero:
             return .error(.resultNotAboveZero(fieldName))
+        case .negative:
+            return .error(.resultNegative(fieldName))
         }
     }
 }

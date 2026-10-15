@@ -47,7 +47,9 @@ struct HomeView: View {
                     LeftRightCheckView()
                 case .distanceScale:
                     DistanceScaleView()
-                case .angleCorrection, .offset:
+                case .offset:
+                    OffsetView()
+                case .angleCorrection:
                     ContentUnavailableView(
                         .placeholderTitle,
                         systemImage: "hammer",

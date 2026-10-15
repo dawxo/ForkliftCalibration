@@ -24,4 +24,13 @@ enum ParsedNumber: Equatable {
         case .number: .failure(.notAboveZero)
         }
     }
+
+    var nonNegativeValue: Result<Double, InputProblem> {
+        switch self {
+        case .empty: .failure(.empty)
+        case .notANumber: .failure(.notANumber)
+        case .number(let value) where value >= 0: .success(value)
+        case .number: .failure(.negative)
+        }
+    }
 }
