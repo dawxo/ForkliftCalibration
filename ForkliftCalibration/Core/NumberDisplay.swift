@@ -4,12 +4,12 @@
 import Foundation
 
 enum NumberDisplay {
-    private static let resultDecimals = 15
+    private static let resultMaxDecimals = 15
     private static let offsetMaxDecimals = 10
     private static let trueMinusSign = "\u{2212}"
 
     static func result(_ value: Double) -> String {
-        value.formatted(.number.precision(.fractionLength(resultDecimals)).grouping(.never))
+        value.formatted(.number.precision(.fractionLength(0...resultMaxDecimals)).grouping(.never))
     }
 
     static func millimeters(_ value: Double) -> String {
