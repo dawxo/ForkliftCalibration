@@ -16,7 +16,7 @@ struct HistoryRow: View {
                 .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: 2) {
-                Text(entry.check.route.title)
+                Text(entry.check.title)
                     .font(.headline)
                     .foregroundStyle(Color.primaryText)
 

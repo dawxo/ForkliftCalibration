@@ -22,6 +22,7 @@ struct ResultBand: View {
 
     let label: LocalizedStringResource
     let content: Content
+    private(set) var cornerRadius = 0.0
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -48,14 +49,24 @@ struct ResultBand: View {
         .padding(.top, 16)
         .padding(.horizontal, 24)
         .padding(.bottom, 20)
-        .background(Color.resultSurface, ignoresSafeAreaEdges: [])
+        .background(Color.resultSurface, in: shape)
         .overlay {
             if case .error = content {
-                Rectangle()
+                shape
                     .strokeBorder(Color.resultFail, lineWidth: 3)
             }
         }
         .dynamicTypeSize(...DynamicTypeSize.accessibility1)
+    }
+
+    func inlineCard() -> Self {
+        var card = self
+        card.cornerRadius = 20
+        return card
+    }
+
+    private var shape: RoundedRectangle {
+        RoundedRectangle(cornerRadius: cornerRadius)
     }
 
     @ViewBuilder

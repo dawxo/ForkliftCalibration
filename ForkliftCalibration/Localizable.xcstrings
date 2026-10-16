@@ -309,6 +309,248 @@
         }
       }
     },
+    "guide.back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
+    "guide.complete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "guide.dontSave" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't Save"
+          }
+        }
+      }
+    },
+    "guide.enteredOnAGV" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entered on the AGV"
+          }
+        }
+      }
+    },
+    "guide.finish" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finish"
+          }
+        }
+      }
+    },
+    "guide.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "guide.overview.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm"
+          }
+        }
+      }
+    },
+    "guide.overview.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "guide.overview.inProgress" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guide · In Progress"
+          }
+        }
+      }
+    },
+    "guide.overview.inProgressMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your progress is saved. Pick up where you left off."
+          }
+        }
+      }
+    },
+    "guide.overview.nextUp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next up"
+          }
+        }
+      }
+    },
+    "guide.overview.skipped" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skipped"
+          }
+        }
+      }
+    },
+    "guide.overview.stepCount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guide · %lld Steps"
+          }
+        }
+      }
+    },
+    "guide.overview.steps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steps"
+          }
+        }
+      }
+    },
+    "guide.resume" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resume Step %lld"
+          }
+        }
+      }
+    },
+    "guide.saveToHistory" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save to History"
+          }
+        }
+      }
+    },
+    "guide.start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        }
+      }
+    },
+    "guide.startOver" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Over"
+          }
+        }
+      }
+    },
+    "guide.step" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step %1$lld of %2$lld"
+          }
+        }
+      }
+    },
+    "guide.summary.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save it to keep a record."
+          }
+        }
+      }
+    },
+    "guide.summary.rows" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Summary"
+          }
+        }
+      }
+    },
+    "guide.summary.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calibration Complete"
+          }
+        }
+      }
+    },
     "history.clear" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -404,6 +646,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No checks yet"
+          }
+        }
+      }
+    },
+    "history.result.bothWithinLimit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Both spins within 5°"
           }
         }
       }
@@ -551,6 +804,17 @@
         }
       }
     },
+    "home.guideInProgress" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guide · In progress, step %1$lld of %2$lld"
+          }
+        }
+      }
+    },
     "home.leftRightCheck.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -613,6 +877,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Calibration"
+          }
+        }
+      }
+    },
+    "home.wheelAngleCalibration.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guide · Spin both ways, then correct"
           }
         }
       }
@@ -921,6 +1196,325 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "mm"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.bind.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set the drive wheel to 0° and bind the vehicle for calibration."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.bind.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bind the Vehicle at 0°"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.bindAgain.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Return the drive wheel to 0° and bind the vehicle before the clockwise spin."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.bindAgain.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bind Again at 0°"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.bothWithinLimit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Both spins were within 5°."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.bound" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vehicle is bound at 0°"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.checkStop" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Check** where the forklift stops against the 0° line."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.clockwise.spin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Spin clockwise** for the full 3600."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.clockwise.turn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Turn the wheel** clockwise by hand."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.correct.clockwiseMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter how far the clockwise spin stopped from the 0° line."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.correct.counterclockwiseMessage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter how far the counterclockwise spin stopped from the 0° line."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.correct.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Correct the Wheelbase"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.counterclockwise.spin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Spin counterclockwise** for the full 3600."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.counterclockwise.turn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Turn the wheel** counterclockwise by hand."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.note.clockwiseOver" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clockwise was over, so step 5 is next."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.note.clockwiseUnder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clockwise was under, so step 5 is next."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.note.counterclockwiseOver" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Counterclockwise was over, so step 5 is next."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.note.counterclockwiseUnder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Counterclockwise was under, so step 5 is next."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.note.skipped" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Both spins were within 5°, so step 5 is skipped."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.overview.correctDetail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only if a spin was under or over"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.overview.message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spin the wheel both ways from 0°, then correct the wheelbase if either spin was off."
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.overview.spinDetail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check under or over"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.resultLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Result"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.spinClockwise.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spin Clockwise"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.spinCounterclockwise.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spin Counterclockwise"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.spinQuestion" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How did it stop?"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.spinResult.onTheLine" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On the line"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.spinResult.withinLimit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Within 5°"
+          }
+        }
+      }
+    },
+    "wheelAngleCalibration.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wheel Angle Calibration"
           }
         }
       }

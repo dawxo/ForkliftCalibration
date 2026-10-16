@@ -4,12 +4,25 @@
 import SwiftUI
 
 struct HomeView: View {
+    @AppStorage(SavedInputKey.wheelAngleCalibrationProgress)
+    private var wheelAngleCalibrationProgressData: Data?
+
     var body: some View {
         NavigationStack {
             List {
                 Section(.homeSectionWheelbaseSpin) {
+                    NavigationLink {
+                        WheelAngleCalibrationView()
+                    } label: {
+                        guideRow(
+                            title: .wheelAngleCalibrationTitle,
+                            subtitle: .homeWheelAngleCalibrationSubtitle,
+                            progress: wheelAngleCalibrationProgress
+                        )
+                    }
                     NavigationLink(value: CalculatorRoute.angleCorrection) {
                         HomeRow(
+                            tile: .calculator,
                             title: CalculatorRoute.angleCorrection.title,
                             subtitle: .homeAngleCorrectionSubtitle
                         )
@@ -18,12 +31,14 @@ struct HomeView: View {
                 Section(.homeSectionDistance) {
                     NavigationLink(value: CalculatorRoute.leftRightCheck) {
                         HomeRow(
+                            tile: .calculator,
                             title: CalculatorRoute.leftRightCheck.title,
                             subtitle: .homeLeftRightCheckSubtitle
                         )
                     }
                     NavigationLink(value: CalculatorRoute.distanceScale) {
                         HomeRow(
+                            tile: .calculator,
                             title: CalculatorRoute.distanceScale.title,
                             subtitle: .homeDistanceScaleSubtitle
                         )
@@ -32,6 +47,7 @@ struct HomeView: View {
                 Section(.homeSectionForks) {
                     NavigationLink(value: CalculatorRoute.offset) {
                         HomeRow(
+                            tile: .calculator,
                             title: CalculatorRoute.offset.title,
                             subtitle: .homeOffsetSubtitle
                         )
@@ -63,6 +79,26 @@ struct HomeView: View {
                 }
             }
         }
+    }
+
+    private var wheelAngleCalibrationProgress: WheelAngleCalibration? {
+        GuideProgressStorage.decode(wheelAngleCalibrationProgressData)
+    }
+
+    private func guideRow(
+        title: LocalizedStringResource,
+        subtitle: LocalizedStringResource,
+        progress: (some Guide)?
+    ) -> HomeRow {
+        guard let progress else {
+            return HomeRow(tile: .guide, title: title, subtitle: subtitle)
+        }
+        return HomeRow(
+            tile: .guide,
+            title: title,
+            subtitle: .homeGuideInProgress(progress.stepNumber, progress.stepCount),
+            stepStates: progress.stepStates
+        )
     }
 }
 

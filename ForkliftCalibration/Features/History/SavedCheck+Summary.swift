@@ -15,12 +15,13 @@ extension SavedCheck {
         let resultLine: LocalizedStringResource
     }
 
-    var route: CalculatorRoute {
+    var title: LocalizedStringResource {
         switch self {
-        case .angleCorrection: .angleCorrection
-        case .leftRightCheck: .leftRightCheck
-        case .distanceScale: .distanceScale
-        case .offset: .offset
+        case .angleCorrection: CalculatorRoute.angleCorrection.title
+        case .leftRightCheck: CalculatorRoute.leftRightCheck.title
+        case .distanceScale: CalculatorRoute.distanceScale.title
+        case .offset: CalculatorRoute.offset.title
+        case .wheelAngleCalibration: .wheelAngleCalibrationTitle
         }
     }
 
@@ -77,6 +78,24 @@ extension SavedCheck {
             return Summary(
                 status: .neutral,
                 resultLine: .historyResultValue(NumberDisplay.offset(adjustedValue))
+            )
+
+        case .wheelAngleCalibration(let counterclockwise, let clockwise, let amount, let wheelbase):
+            let calibration = WheelAngleCalibration(
+                counterclockwise: counterclockwise,
+                clockwise: clockwise,
+                amount: amount,
+                wheelbase: wheelbase
+            )
+            if calibration.isSkipped(.correctWheelbase) {
+                return Summary(status: .pass, resultLine: .historyResultBothWithinLimit)
+            }
+            guard let correctedWheelbase = calibration.correctedWheelbase else {
+                return Self.unavailable
+            }
+            return Summary(
+                status: .neutral,
+                resultLine: .historyResultWheelbase(NumberDisplay.result(correctedWheelbase))
             )
         }
     }

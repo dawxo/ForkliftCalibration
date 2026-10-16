@@ -14,50 +14,32 @@ struct HistoryDetailView: View {
         List {
             Section {
                 ForEach(rows.indices, id: \.self) { index in
-                    inputRow(rows[index])
+                    InputRowView(row: rows[index])
                 }
             } header: {
                 Text(entry.savedAt, format: .dateTime.weekday(.wide).month().day().hour().minute())
             }
 
-            Section {
-                Button(.historyUseTheseValues) {
-                    entry.check.restoreInputs()
-                    isShowingCalculator = true
+            if entry.check.restoresIntoCalculator {
+                Section {
+                    Button(.historyUseTheseValues) {
+                        entry.check.restoreInputs()
+                        isShowingCalculator = true
+                    }
+                    .buttonStyle(.primary)
                 }
-                .buttonStyle(.primary)
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
             }
-            .listRowInsets(EdgeInsets())
-            .listRowBackground(Color.clear)
         }
         .listStyle(.insetGrouped)
         .safeAreaInset(edge: .top, spacing: 0) {
             entry.check.resultBand
         }
-        .navigationTitle(entry.check.route.title)
+        .navigationTitle(entry.check.title)
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(isPresented: $isShowingCalculator) {
             calculator
-        }
-    }
-
-    private func inputRow(_ row: SavedCheck.InputRow) -> some View {
-        LabeledContent {
-            switch row.value {
-            case .number(let number, let unit):
-                HStack(spacing: 4) {
-                    Text(verbatim: number)
-                        .monospacedDigit()
-
-                    if let unit {
-                        Text(unit)
-                    }
-                }
-            case .choice(let choice):
-                Text(choice)
-            }
-        } label: {
-            Text(row.label)
         }
     }
 
@@ -72,6 +54,8 @@ struct HistoryDetailView: View {
             DistanceScaleView()
         case .offset:
             OffsetView()
+        case .wheelAngleCalibration:
+            EmptyView()
         }
     }
 }

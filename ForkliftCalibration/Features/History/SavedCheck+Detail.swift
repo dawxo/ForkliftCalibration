@@ -32,6 +32,14 @@ extension SavedCheck {
             )
         case .offset(let value):
             Offset.resultBand(value: value)
+        case .wheelAngleCalibration(let counterclockwise, let clockwise, let amount, let wheelbase):
+            WheelAngleCalibration(
+                counterclockwise: counterclockwise,
+                clockwise: clockwise,
+                amount: amount,
+                wheelbase: wheelbase
+            )
+            .resultBand
         }
     }
 
@@ -78,6 +86,51 @@ extension SavedCheck {
             ]
         case .offset(let value):
             [InputRow(label: .offsetFieldValue, value: .number(value, unit: .unitMeters))]
+        case .wheelAngleCalibration(let counterclockwise, let clockwise, let amount, let wheelbase):
+            Self.wheelAngleCalibrationRows(
+                counterclockwise: counterclockwise,
+                clockwise: clockwise,
+                amount: amount,
+                wheelbase: wheelbase
+            )
+        }
+    }
+
+    private static func wheelAngleCalibrationRows(
+        counterclockwise: WheelAngleCalibration.SpinResult,
+        clockwise: WheelAngleCalibration.SpinResult,
+        amount: String,
+        wheelbase: String
+    ) -> [InputRow] {
+        let spinRows = [
+            InputRow(
+                label: AngleCorrection.SpinDirection.counterclockwise.title,
+                value: .choice(counterclockwise.title)
+            ),
+            InputRow(
+                label: AngleCorrection.SpinDirection.clockwise.title,
+                value: .choice(clockwise.title)
+            ),
+        ]
+        guard !amount.isEmpty else {
+            return spinRows
+        }
+        return spinRows + [
+            InputRow(
+                label: AngleCorrection.Field.amount.label,
+                value: .number(amount, unit: .unitDegrees)
+            ),
+            InputRow(
+                label: AngleCorrection.Field.wheelbase.label,
+                value: .number(wheelbase, unit: nil)
+            ),
+        ]
+    }
+
+    var restoresIntoCalculator: Bool {
+        switch self {
+        case .angleCorrection, .leftRightCheck, .distanceScale, .offset: true
+        case .wheelAngleCalibration: false
         }
     }
 
@@ -99,6 +152,8 @@ extension SavedCheck {
             defaults.set(magnification, forKey: SavedInputKey.distanceScaleMagnification)
         case .offset(let value):
             defaults.set(value, forKey: SavedInputKey.offsetValue)
+        case .wheelAngleCalibration:
+            break
         }
     }
 }

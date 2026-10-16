@@ -11,4 +11,10 @@ nonisolated enum SavedCheck: Codable, Equatable {
     case leftRightCheck(left: String, right: String)
     case distanceScale(measured: String, computer: String, magnification: String)
     case offset(value: String)
+    case wheelAngleCalibration(
+        counterclockwise: WheelAngleCalibration.SpinResult,
+        clockwise: WheelAngleCalibration.SpinResult,
+        amount: String,
+        wheelbase: String
+    )
 }

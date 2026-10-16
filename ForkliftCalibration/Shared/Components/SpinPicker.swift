@@ -19,6 +19,7 @@ struct SpinPicker<Option: SpinPickerOption>: View {
     private static var shape: RoundedRectangle { RoundedRectangle(cornerRadius: 18) }
     private let buttonSpacing = 10.0
     private let legendIconWidth = 26.0
+    private let diagramMaxWidth = 128.0
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -53,6 +54,8 @@ struct SpinPicker<Option: SpinPickerOption>: View {
                 }
                 .font(.title2)
                 .fontWeight(isSelected ? .bold : .semibold)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
                 .foregroundStyle(isSelected ? Color.onAccent : Color.primaryText)
 
                 Text(option.caption)
@@ -76,6 +79,9 @@ struct SpinPicker<Option: SpinPickerOption>: View {
 
     private func diagram(for option: Option, isSelected: Bool) -> some View {
         Image(option.diagram(isSelected: isSelected))
+            .resizable()
+            .scaledToFit()
+            .frame(maxWidth: diagramMaxWidth)
             .scaleEffect(y: spinDirection == .clockwise ? -1 : 1)
             .accessibilityHidden(true)
     }
