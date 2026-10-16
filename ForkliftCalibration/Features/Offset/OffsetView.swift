@@ -8,13 +8,14 @@ struct OffsetView: View {
         case value
     }
 
-    @AppStorage("offset.value") private var value = ""
+    @AppStorage(SavedInputKey.offsetValue) private var value = ""
     @FocusState private var focusedField: Field?
 
     var body: some View {
         CalculatorScreen(
             title: CalculatorRoute.offset.title,
-            resultBand: ResultBand(label: .offsetResultLabel, content: bandContent),
+            resultBand: Offset.resultBand(value: value),
+            savedCheck: savedCheck,
             focusedField: $focusedField
         ) {
             NumberInputCard(
@@ -27,17 +28,28 @@ struct OffsetView: View {
         }
     }
 
-    private var bandContent: ResultBand.Content {
-        switch Offset.adjustedValue(ParsedNumber(parsing: value)) {
-        case .success(let adjustedValue):
-            .result(
-                value: NumberDisplay.offset(adjustedValue),
-                unit: .unitMeters,
-                formula: "\(value) − \(NumberDisplay.offset(Offset.subtractedMeters))"
-            )
-        case .failure(let problem):
-            .problem(problem, in: .offsetFieldValue)
+    private var savedCheck: SavedCheck? {
+        guard case .success = Offset.adjustedValue(ParsedNumber(parsing: value)) else {
+            return nil
         }
+        return .offset(value: value)
+    }
+}
+
+extension Offset {
+    static func resultBand(value: String) -> ResultBand {
+        let content: ResultBand.Content =
+            switch adjustedValue(ParsedNumber(parsing: value)) {
+            case .success(let result):
+                .result(
+                    value: NumberDisplay.offset(result),
+                    unit: .unitMeters,
+                    formula: "\(value) − \(NumberDisplay.offset(subtractedMeters))"
+                )
+            case .failure(let problem):
+                .problem(problem, in: .offsetFieldValue)
+            }
+        return ResultBand(label: .offsetResultLabel, content: content)
     }
 }
 

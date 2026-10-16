@@ -41,6 +41,15 @@ struct HomeView: View {
             .listStyle(.insetGrouped)
             .environment(\.defaultMinListRowHeight, 80)
             .navigationTitle(.homeTitle)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        HistoryView()
+                    } label: {
+                        Label(.historyTitle, systemImage: "clock.arrow.circlepath")
+                    }
+                }
+            }
             .navigationDestination(for: CalculatorRoute.self) { route in
                 switch route {
                 case .angleCorrection:

@@ -4,17 +4,26 @@
 import SwiftUI
 
 struct AngleCorrectionView: View {
-    @AppStorage("angleCorrection.spinDirection")
+    @AppStorage(SavedInputKey.angleCorrectionSpinDirection)
     private var spinDirection = AngleCorrection.SpinDirection.counterclockwise
     @State private var spinOutcome: AngleCorrection.SpinOutcome?
-    @AppStorage("angleCorrection.amount") private var amount = ""
-    @AppStorage("angleCorrection.wheelbase") private var wheelbase = ""
+    @AppStorage(SavedInputKey.angleCorrectionAmount) private var amount = ""
+    @AppStorage(SavedInputKey.angleCorrectionWheelbase) private var wheelbase = ""
     @FocusState private var focusedField: AngleCorrection.Field?
+
+    init(spinOutcome: AngleCorrection.SpinOutcome? = nil) {
+        _spinOutcome = State(initialValue: spinOutcome)
+    }
 
     var body: some View {
         CalculatorScreen(
             title: CalculatorRoute.angleCorrection.title,
-            resultBand: ResultBand(label: .angleCorrectionResultLabel, content: bandContent),
+            resultBand: AngleCorrection.resultBand(
+                spinOutcome: spinOutcome,
+                amount: amount,
+                wheelbase: wheelbase
+            ),
+            savedCheck: savedCheck,
             focusedField: $focusedField
         ) {
             SpinDirectionPicker(selection: $spinDirection)
@@ -39,34 +48,63 @@ struct AngleCorrectionView: View {
         .focused($focusedField, equals: field)
     }
 
-    private var bandContent: ResultBand.Content {
+    private var savedCheck: SavedCheck? {
         let outcome = AngleCorrection.calculate(
             spinOutcome: spinOutcome,
             amount: ParsedNumber(parsing: amount),
             wheelbase: ParsedNumber(parsing: wheelbase)
         )
-
-        switch outcome {
-        case .chooseUnderOrOver:
-            return .instruction(.angleCorrectionResultChooseUnderOrOver)
-        case .problem(let field, let problem):
-            return .problem(problem, in: field.label)
-        case .calculated(let spinOutcome, let correctedWheelbase):
-            return .result(
-                value: NumberDisplay.result(correctedWheelbase),
-                formula: formula(for: spinOutcome)
-            )
+        guard case .calculated(let spinOutcome, _) = outcome else {
+            return nil
         }
+        return .angleCorrection(
+            spinDirection: spinDirection,
+            spinOutcome: spinOutcome,
+            amount: amount,
+            wheelbase: wheelbase
+        )
     }
 
-    private func formula(for spinOutcome: AngleCorrection.SpinOutcome) -> String {
-        let spinDegrees = AngleCorrection.spinDegrees.formatted(.number.grouping(.never))
+}
+
+extension AngleCorrection {
+    static func resultBand(
+        spinOutcome: SpinOutcome?,
+        amount: String,
+        wheelbase: String
+    ) -> ResultBand {
+        let outcome = calculate(
+            spinOutcome: spinOutcome,
+            amount: ParsedNumber(parsing: amount),
+            wheelbase: ParsedNumber(parsing: wheelbase)
+        )
+        let content: ResultBand.Content =
+            switch outcome {
+            case .chooseUnderOrOver:
+                .instruction(.angleCorrectionResultChooseUnderOrOver)
+            case .problem(let field, let problem):
+                .problem(problem, in: field.label)
+            case .calculated(let spinOutcome, let correctedWheelbase):
+                .result(
+                    value: NumberDisplay.result(correctedWheelbase),
+                    formula: formula(for: spinOutcome, amount: amount, wheelbase: wheelbase)
+                )
+            }
+        return ResultBand(label: .angleCorrectionResultLabel, content: content)
+    }
+
+    private static func formula(
+        for spinOutcome: SpinOutcome,
+        amount: String,
+        wheelbase: String
+    ) -> String {
+        let fullSpin = spinDegrees.formatted(.number.grouping(.never))
         let operation =
             switch spinOutcome {
             case .under: "−"
             case .over: "+"
             }
-        return "(\(spinDegrees) \(operation) \(amount)) ÷ \(spinDegrees) × \(wheelbase)"
+        return "(\(fullSpin) \(operation) \(amount)) ÷ \(fullSpin) × \(wheelbase)"
     }
 }
 

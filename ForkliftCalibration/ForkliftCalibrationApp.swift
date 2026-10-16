@@ -1,6 +1,7 @@
 ////  ForkliftCalibrationApp.swift
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -9,5 +10,6 @@ struct ForkliftCalibrationApp: App {
         WindowGroup {
             HomeView()
         }
+        .modelContainer(for: HistoryEntry.self)
     }
 }

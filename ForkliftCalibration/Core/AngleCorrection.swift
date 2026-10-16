@@ -6,12 +6,12 @@ enum AngleCorrection {
     static let spinDegrees = spinTurns * 360
     static let maximumAmountDegrees = 180.0
 
-    enum SpinDirection: String {
+    nonisolated enum SpinDirection: String, Codable {
         case counterclockwise
         case clockwise
     }
 
-    enum SpinOutcome {
+    nonisolated enum SpinOutcome: String, Codable {
         case under
         case over
     }

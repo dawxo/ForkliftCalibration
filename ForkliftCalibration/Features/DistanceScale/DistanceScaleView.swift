@@ -4,15 +4,20 @@
 import SwiftUI
 
 struct DistanceScaleView: View {
-    @AppStorage("distanceScale.measured") private var measured = ""
-    @AppStorage("distanceScale.computer") private var computer = ""
-    @AppStorage("distanceScale.magnification") private var magnification = ""
+    @AppStorage(SavedInputKey.distanceScaleMeasured) private var measured = ""
+    @AppStorage(SavedInputKey.distanceScaleComputer) private var computer = ""
+    @AppStorage(SavedInputKey.distanceScaleMagnification) private var magnification = ""
     @FocusState private var focusedField: DistanceScale.Field?
 
     var body: some View {
         CalculatorScreen(
             title: CalculatorRoute.distanceScale.title,
-            resultBand: ResultBand(label: .distanceScaleResultLabel, content: bandContent),
+            resultBand: DistanceScale.resultBand(
+                measured: measured,
+                computer: computer,
+                magnification: magnification
+            ),
+            savedCheck: savedCheck,
             focusedField: $focusedField
         ) {
             HowToMeasureButton(thumbnail: .distanceRun, subtitle: .distanceScaleHowToSubtitle) {
@@ -39,26 +44,45 @@ struct DistanceScaleView: View {
         .focused($focusedField, equals: field)
     }
 
-    private var bandContent: ResultBand.Content {
+    private var savedCheck: SavedCheck? {
         let outcome = DistanceScale.calculate(
             measured: ParsedNumber(parsing: measured),
             computer: ParsedNumber(parsing: computer),
             magnification: ParsedNumber(parsing: magnification)
         )
-
-        switch outcome {
-        case .calculated(let calculation):
-            return .result(
-                value: NumberDisplay.result(calculation.correctedMagnification),
-                formula: "\(measured) ÷ \(computer) × \(magnification)",
-                status: status(for: calculation)
-            )
-        case .problem(let field, let problem):
-            return .problem(problem, in: field.label)
+        guard case .calculated = outcome else {
+            return nil
         }
+        return .distanceScale(measured: measured, computer: computer, magnification: magnification)
+    }
+}
+
+extension DistanceScale {
+    static func resultBand(
+        measured: String,
+        computer: String,
+        magnification: String
+    ) -> ResultBand {
+        let outcome = calculate(
+            measured: ParsedNumber(parsing: measured),
+            computer: ParsedNumber(parsing: computer),
+            magnification: ParsedNumber(parsing: magnification)
+        )
+        let content: ResultBand.Content =
+            switch outcome {
+            case .calculated(let calculation):
+                .result(
+                    value: NumberDisplay.result(calculation.correctedMagnification),
+                    formula: "\(measured) ÷ \(computer) × \(magnification)",
+                    status: status(for: calculation)
+                )
+            case .problem(let field, let problem):
+                .problem(problem, in: field.label)
+            }
+        return ResultBand(label: .distanceScaleResultLabel, content: content)
     }
 
-    private func status(for calculation: DistanceScale.Calculation) -> ResultBand.Status {
+    private static func status(for calculation: Calculation) -> ResultBand.Status {
         if calculation.isWithinLimit {
             return .pass(.distanceScaleStatusWithin)
         }

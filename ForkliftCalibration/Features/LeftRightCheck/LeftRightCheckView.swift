@@ -4,14 +4,15 @@
 import SwiftUI
 
 struct LeftRightCheckView: View {
-    @AppStorage("leftRightCheck.left") private var left = ""
-    @AppStorage("leftRightCheck.right") private var right = ""
+    @AppStorage(SavedInputKey.leftRightCheckLeft) private var left = ""
+    @AppStorage(SavedInputKey.leftRightCheckRight) private var right = ""
     @FocusState private var focusedField: LeftRightCheck.Wheel?
 
     var body: some View {
         CalculatorScreen(
             title: CalculatorRoute.leftRightCheck.title,
-            resultBand: ResultBand(label: .leftRightCheckResultLabel, content: bandContent),
+            resultBand: LeftRightCheck.resultBand(left: left, right: right),
+            savedCheck: savedCheck,
             focusedField: $focusedField
         ) {
             switch outcome {
@@ -60,31 +61,50 @@ struct LeftRightCheckView: View {
         )
     }
 
-    private var bandContent: ResultBand.Content {
+    private var savedCheck: SavedCheck? {
         switch outcome {
-        case .within(let differenceMillimeters):
-            return differenceResult(
-                differenceMillimeters,
-                status: .pass(.leftRightCheckStatusWithin)
-            )
-        case .over(let differenceMillimeters, let fartherWheel):
-            return differenceResult(
-                differenceMillimeters,
-                status: .fail(fartherWheel.wentFartherMessage)
-            )
-        case .problem(let wheel, let problem):
-            return .problem(problem, in: wheel.label)
+        case .within, .over: .leftRightCheck(left: left, right: right)
+        case .problem: nil
         }
     }
 
-    private func differenceResult(
+}
+
+extension LeftRightCheck {
+    static func resultBand(left: String, right: String) -> ResultBand {
+        let outcome = calculate(
+            left: ParsedNumber(parsing: left),
+            right: ParsedNumber(parsing: right)
+        )
+        let content: ResultBand.Content =
+            switch outcome {
+            case .within(let differenceMillimeters):
+                differenceResult(
+                    differenceMillimeters,
+                    formula: "\(left) − \(right)",
+                    status: .pass(.leftRightCheckStatusWithin)
+                )
+            case .over(let differenceMillimeters, let fartherWheel):
+                differenceResult(
+                    differenceMillimeters,
+                    formula: "\(left) − \(right)",
+                    status: .fail(fartherWheel.wentFartherMessage)
+                )
+            case .problem(let wheel, let problem):
+                .problem(problem, in: wheel.label)
+            }
+        return ResultBand(label: .leftRightCheckResultLabel, content: content)
+    }
+
+    private static func differenceResult(
         _ differenceMillimeters: Double,
+        formula: String,
         status: ResultBand.Status
     ) -> ResultBand.Content {
         .result(
             value: NumberDisplay.millimeters(differenceMillimeters),
             unit: .unitMillimeters,
-            formula: "\(left) − \(right)",
+            formula: formula,
             status: status
         )
     }
