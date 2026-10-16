@@ -17,4 +17,13 @@ nonisolated enum SavedCheck: Codable, Equatable {
         amount: String,
         wheelbase: String
     )
+    case distanceCalibration(
+        left: String,
+        right: String,
+        leftRightTryCount: Int,
+        measured: String,
+        computer: String,
+        magnification: String,
+        distanceRunTryCount: Int
+    )
 }

@@ -6,6 +6,8 @@ import SwiftUI
 struct HomeView: View {
     @AppStorage(SavedInputKey.wheelAngleCalibrationProgress)
     private var wheelAngleCalibrationProgressData: Data?
+    @AppStorage(SavedInputKey.distanceCalibrationProgress)
+    private var distanceCalibrationProgressData: Data?
 
     var body: some View {
         NavigationStack {
@@ -29,6 +31,15 @@ struct HomeView: View {
                     }
                 }
                 Section(.homeSectionDistance) {
+                    NavigationLink {
+                        DistanceCalibrationView()
+                    } label: {
+                        guideRow(
+                            title: .distanceCalibrationTitle,
+                            subtitle: .homeDistanceCalibrationSubtitle,
+                            progress: distanceCalibrationProgress
+                        )
+                    }
                     NavigationLink(value: CalculatorRoute.leftRightCheck) {
                         HomeRow(
                             tile: .calculator,
@@ -83,6 +94,10 @@ struct HomeView: View {
 
     private var wheelAngleCalibrationProgress: WheelAngleCalibration? {
         GuideProgressStorage.decode(wheelAngleCalibrationProgressData)
+    }
+
+    private var distanceCalibrationProgress: DistanceCalibration? {
+        GuideProgressStorage.decode(distanceCalibrationProgressData)
     }
 
     private func guideRow(

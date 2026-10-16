@@ -40,6 +40,8 @@ extension SavedCheck {
                 wheelbase: wheelbase
             )
             .resultBand
+        case .distanceCalibration:
+            DistanceCalibration.resultBand
         }
     }
 
@@ -93,7 +95,53 @@ extension SavedCheck {
                 amount: amount,
                 wheelbase: wheelbase
             )
+        case .distanceCalibration(
+            let left, let right, let leftRightTryCount, let measured, let computer,
+            let magnification, let distanceRunTryCount
+        ):
+            Self.distanceCalibrationRows(
+                DistanceCalibration(
+                    left: left,
+                    right: right,
+                    leftRightTryCount: leftRightTryCount,
+                    measured: measured,
+                    computer: computer,
+                    magnification: magnification,
+                    distanceRunTryCount: distanceRunTryCount
+                )
+            )
         }
+    }
+
+    private static func distanceCalibrationRows(_ calibration: DistanceCalibration) -> [InputRow] {
+        [
+            InputRow(
+                label: DistanceCalibration.Step.leftRightCheck.title,
+                value: tryResult(
+                    differenceMillimeters: calibration.leftRightDifferenceMillimeters,
+                    tryCount: calibration.leftRightTryCount
+                )
+            ),
+            InputRow(
+                label: DistanceCalibration.Step.distanceRun.title,
+                value: tryResult(
+                    differenceMillimeters: calibration.distanceRunDifferenceMillimeters,
+                    tryCount: calibration.distanceRunTryCount
+                )
+            ),
+            InputRow(
+                label: DistanceScale.Field.magnification.label,
+                value: .number(calibration.magnification, unit: nil)
+            ),
+        ]
+    }
+
+    private static func tryResult(differenceMillimeters: Double?, tryCount: Int) -> InputRow.Value {
+        guard let differenceMillimeters else {
+            return .choice(.historyResultUnavailable)
+        }
+        let difference = NumberDisplay.millimeters(differenceMillimeters)
+        return .choice(.historyDetailTryResult(difference, tries: tryCount))
     }
 
     private static func wheelAngleCalibrationRows(
@@ -130,7 +178,7 @@ extension SavedCheck {
     var restoresIntoCalculator: Bool {
         switch self {
         case .angleCorrection, .leftRightCheck, .distanceScale, .offset: true
-        case .wheelAngleCalibration: false
+        case .wheelAngleCalibration, .distanceCalibration: false
         }
     }
 
@@ -152,7 +200,7 @@ extension SavedCheck {
             defaults.set(magnification, forKey: SavedInputKey.distanceScaleMagnification)
         case .offset(let value):
             defaults.set(value, forKey: SavedInputKey.offsetValue)
-        case .wheelAngleCalibration:
+        case .wheelAngleCalibration, .distanceCalibration:
             break
         }
     }

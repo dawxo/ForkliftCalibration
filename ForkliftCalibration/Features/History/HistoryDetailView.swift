@@ -54,7 +54,7 @@ struct HistoryDetailView: View {
             DistanceScaleView()
         case .offset:
             OffsetView()
-        case .wheelAngleCalibration:
+        case .wheelAngleCalibration, .distanceCalibration:
             EmptyView()
         }
     }

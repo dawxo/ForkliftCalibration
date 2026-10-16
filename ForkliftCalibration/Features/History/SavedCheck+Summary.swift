@@ -22,6 +22,7 @@ extension SavedCheck {
         case .distanceScale: CalculatorRoute.distanceScale.title
         case .offset: CalculatorRoute.offset.title
         case .wheelAngleCalibration: .wheelAngleCalibrationTitle
+        case .distanceCalibration: .distanceCalibrationTitle
         }
     }
 
@@ -97,6 +98,16 @@ extension SavedCheck {
                 status: .neutral,
                 resultLine: .historyResultWheelbase(NumberDisplay.result(correctedWheelbase))
             )
+
+        case .distanceCalibration(
+            left: _,
+            right: _,
+            leftRightTryCount: _,
+            measured: _,
+            computer: _, let magnification,
+            distanceRunTryCount: _
+        ):
+            return Summary(status: .pass, resultLine: .historyResultMagnification(magnification))
         }
     }
 

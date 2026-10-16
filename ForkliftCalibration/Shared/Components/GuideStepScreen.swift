@@ -10,6 +10,7 @@ struct GuideStepScreen<GuideType: Guide, Content: View>: View {
     let message: LocalizedStringResource?
     let primaryButtonTitle: LocalizedStringResource
     let primaryButtonAction: () -> Void
+    var tryCount = 1
     @ViewBuilder let content: Content
 
     var body: some View {
@@ -35,8 +36,14 @@ struct GuideStepScreen<GuideType: Guide, Content: View>: View {
             bottomBar
         }
         .background(Color.appBackground)
-        .navigationTitle(.guideStep(guide.stepNumber, guide.stepCount))
+        .navigationTitle(navigationTitle)
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private var navigationTitle: LocalizedStringResource {
+        tryCount > 1
+            ? .guideStepWithTry(guide.stepNumber, guide.stepCount, tryCount)
+            : .guideStep(guide.stepNumber, guide.stepCount)
     }
 
     private var bottomBar: some View {

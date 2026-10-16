@@ -7,7 +7,7 @@ extension WheelAngleCalibration {
     var resultBand: ResultBand {
         if isSkipped(.correctWheelbase) {
             ResultBand(
-                label: .wheelAngleCalibrationResultLabel,
+                label: .guideResultLabel,
                 content: .instruction(.wheelAngleCalibrationBothWithinLimit)
             )
         } else {

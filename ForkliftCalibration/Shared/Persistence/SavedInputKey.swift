@@ -12,4 +12,5 @@ enum SavedInputKey {
     static let distanceScaleMagnification = "distanceScale.magnification"
     static let offsetValue = "offset.value"
     static let wheelAngleCalibrationProgress = "wheelAngleCalibration.progress"
+    static let distanceCalibrationProgress = "distanceCalibration.progress"
 }
