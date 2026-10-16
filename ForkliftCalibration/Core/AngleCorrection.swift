@@ -11,7 +11,7 @@ enum AngleCorrection {
         case clockwise
     }
 
-    nonisolated enum SpinOutcome: String, Codable {
+    nonisolated enum SpinOutcome: String, Codable, CaseIterable {
         case under
         case over
     }

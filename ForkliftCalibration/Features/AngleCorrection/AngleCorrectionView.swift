@@ -27,7 +27,7 @@ struct AngleCorrectionView: View {
             focusedField: $focusedField
         ) {
             SpinDirectionPicker(selection: $spinDirection)
-            SpinOutcomePicker(selection: $spinOutcome, spinDirection: spinDirection)
+            SpinPicker(selection: $spinOutcome, spinDirection: spinDirection)
 
             inputCard(.amount, text: $amount, unit: .unitDegrees)
             inputCard(.wheelbase, text: $wheelbase)
@@ -113,6 +113,31 @@ extension AngleCorrection.Field {
         switch self {
         case .amount: .angleCorrectionFieldAmount
         case .wheelbase: .angleCorrectionFieldWheelbase
+        }
+    }
+}
+
+extension AngleCorrection.SpinOutcome: SpinPickerOption {
+    var title: LocalizedStringResource {
+        switch self {
+        case .under: .angleCorrectionSpinOutcomeUnder
+        case .over: .angleCorrectionSpinOutcomeOver
+        }
+    }
+
+    var caption: LocalizedStringResource {
+        switch self {
+        case .under: .angleCorrectionSpinOutcomeStoppedShort
+        case .over: .angleCorrectionSpinOutcomeWentPast
+        }
+    }
+
+    func diagram(isSelected: Bool) -> ImageResource {
+        switch (self, isSelected) {
+        case (.under, false): .angleUnder
+        case (.under, true): .angleUnderSelected
+        case (.over, false): .angleOver
+        case (.over, true): .angleOverSelected
         }
     }
 }

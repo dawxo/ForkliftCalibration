@@ -1,23 +1,31 @@
-////  SpinOutcomePicker.swift
+////  SpinPicker.swift
 //
 
 import SwiftUI
 
-struct SpinOutcomePicker: View {
-    @Binding var selection: AngleCorrection.SpinOutcome?
+protocol SpinPickerOption: CaseIterable, Hashable where AllCases == [Self] {
+    var title: LocalizedStringResource { get }
+    var caption: LocalizedStringResource { get }
+
+    func diagram(isSelected: Bool) -> ImageResource
+}
+
+struct SpinPicker<Option: SpinPickerOption>: View {
+    @Binding var selection: Option?
     let spinDirection: AngleCorrection.SpinDirection
 
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
-    private static let shape = RoundedRectangle(cornerRadius: 18)
+    private static var shape: RoundedRectangle { RoundedRectangle(cornerRadius: 18) }
     private let buttonSpacing = 10.0
     private let legendIconWidth = 26.0
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             buttonsLayout {
-                optionButton(.under)
-                optionButton(.over)
+                ForEach(Option.allCases, id: \.self) { option in
+                    optionButton(option)
+                }
             }
 
             if !isStacked {
@@ -26,28 +34,28 @@ struct SpinOutcomePicker: View {
         }
     }
 
-    private func optionButton(_ spinOutcome: AngleCorrection.SpinOutcome) -> some View {
-        let isSelected = selection == spinOutcome
+    private func optionButton(_ option: Option) -> some View {
+        let isSelected = selection == option
 
         return Button {
-            selection = spinOutcome
+            selection = option
         } label: {
             VStack(spacing: 4) {
                 if !isStacked {
-                    diagram(for: spinOutcome, isSelected: isSelected)
+                    diagram(for: option, isSelected: isSelected)
                 }
 
                 HStack(spacing: 6) {
                     if isSelected {
                         Image(systemName: "checkmark")
                     }
-                    Text(spinOutcome.title)
+                    Text(option.title)
                 }
                 .font(.title2)
                 .fontWeight(isSelected ? .bold : .semibold)
                 .foregroundStyle(isSelected ? Color.onAccent : Color.primaryText)
 
-                Text(spinOutcome.caption)
+                Text(option.caption)
                     .font(.subheadline)
                     .foregroundStyle(isSelected ? Color.onAccent : Color.secondaryText)
             }
@@ -66,11 +74,8 @@ struct SpinOutcomePicker: View {
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 
-    private func diagram(
-        for spinOutcome: AngleCorrection.SpinOutcome,
-        isSelected: Bool
-    ) -> some View {
-        Image(spinOutcome.diagram(isSelected: isSelected))
+    private func diagram(for option: Option, isSelected: Bool) -> some View {
+        Image(option.diagram(isSelected: isSelected))
             .scaleEffect(y: spinDirection == .clockwise ? -1 : 1)
             .accessibilityHidden(true)
     }
@@ -128,35 +133,10 @@ struct SpinOutcomePicker: View {
     }
 }
 
-extension AngleCorrection.SpinOutcome {
-    var title: LocalizedStringResource {
-        switch self {
-        case .under: .angleCorrectionSpinOutcomeUnder
-        case .over: .angleCorrectionSpinOutcomeOver
-        }
-    }
-
-    var caption: LocalizedStringResource {
-        switch self {
-        case .under: .angleCorrectionSpinOutcomeStoppedShort
-        case .over: .angleCorrectionSpinOutcomeWentPast
-        }
-    }
-
-    func diagram(isSelected: Bool) -> ImageResource {
-        switch (self, isSelected) {
-        case (.under, false): .angleUnder
-        case (.under, true): .angleUnderSelected
-        case (.over, false): .angleOver
-        case (.over, true): .angleOverSelected
-        }
-    }
-}
-
 #Preview {
     @Previewable @State var selection: AngleCorrection.SpinOutcome? = .under
 
-    SpinOutcomePicker(selection: $selection, spinDirection: .counterclockwise)
+    SpinPicker(selection: $selection, spinDirection: .counterclockwise)
         .padding(.horizontal, 16)
         .frame(maxHeight: .infinity)
         .background(Color.appBackground)
