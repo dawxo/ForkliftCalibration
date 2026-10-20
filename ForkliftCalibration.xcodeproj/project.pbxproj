@@ -7,26 +7,10 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		F2AB670C307470D200AA0E13 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2AB66F6307470D100AA0E13 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F2AB66FD307470D100AA0E13;
-			remoteInfo = ForkliftCalibration;
-		};
-		F2AB6716307470D200AA0E13 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F2AB66F6307470D100AA0E13 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F2AB66FD307470D100AA0E13;
-			remoteInfo = ForkliftCalibration;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F2AB66FE307470D100AA0E13 /* ForkliftCalibration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForkliftCalibration.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2AB670B307470D200AA0E13 /* ForkliftCalibrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForkliftCalibrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2AB6715307470D200AA0E13 /* ForkliftCalibrationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForkliftCalibrationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -48,30 +32,10 @@
 			path = ForkliftCalibration;
 			sourceTree = "<group>";
 		};
-		F2AB670E307470D200AA0E13 /* ForkliftCalibrationTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ForkliftCalibrationTests;
-			sourceTree = "<group>";
-		};
-		F2AB6718307470D200AA0E13 /* ForkliftCalibrationUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ForkliftCalibrationUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F2AB66FB307470D100AA0E13 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-			);
-		};
-		F2AB6708307470D200AA0E13 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-			);
-		};
-		F2AB6712307470D200AA0E13 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
 			);
@@ -83,8 +47,6 @@
 			isa = PBXGroup;
 			children = (
 				F2AB6700307470D100AA0E13 /* ForkliftCalibration */,
-				F2AB670E307470D200AA0E13 /* ForkliftCalibrationTests */,
-				F2AB6718307470D200AA0E13 /* ForkliftCalibrationUITests */,
 				F2AB66FF307470D100AA0E13 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,8 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				F2AB66FE307470D100AA0E13 /* ForkliftCalibration.app */,
-				F2AB670B307470D200AA0E13 /* ForkliftCalibrationTests.xctest */,
-				F2AB6715307470D200AA0E13 /* ForkliftCalibrationUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,48 +80,6 @@
 			productReference = F2AB66FE307470D100AA0E13 /* ForkliftCalibration.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F2AB670A307470D200AA0E13 /* ForkliftCalibrationTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F2AB6720307470D200AA0E13 /* Build configuration list for PBXNativeTarget "ForkliftCalibrationTests" */;
-			buildPhases = (
-				F2AB6707307470D200AA0E13 /* Sources */,
-				F2AB6708307470D200AA0E13 /* Frameworks */,
-				F2AB6709307470D200AA0E13 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F2AB670D307470D200AA0E13 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F2AB670E307470D200AA0E13 /* ForkliftCalibrationTests */,
-			);
-			name = ForkliftCalibrationTests;
-			productName = ForkliftCalibrationTests;
-			productReference = F2AB670B307470D200AA0E13 /* ForkliftCalibrationTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		F2AB6714307470D200AA0E13 /* ForkliftCalibrationUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F2AB6723307470D200AA0E13 /* Build configuration list for PBXNativeTarget "ForkliftCalibrationUITests" */;
-			buildPhases = (
-				F2AB6711307470D200AA0E13 /* Sources */,
-				F2AB6712307470D200AA0E13 /* Frameworks */,
-				F2AB6713307470D200AA0E13 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F2AB6717307470D200AA0E13 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				F2AB6718307470D200AA0E13 /* ForkliftCalibrationUITests */,
-			);
-			name = ForkliftCalibrationUITests;
-			productName = ForkliftCalibrationUITests;
-			productReference = F2AB6715307470D200AA0E13 /* ForkliftCalibrationUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -174,14 +92,6 @@
 				TargetAttributes = {
 					F2AB66FD307470D100AA0E13 = {
 						CreatedOnToolsVersion = 27.0;
-					};
-					F2AB670A307470D200AA0E13 = {
-						CreatedOnToolsVersion = 27.0;
-						TestTargetID = F2AB66FD307470D100AA0E13;
-					};
-					F2AB6714307470D200AA0E13 = {
-						CreatedOnToolsVersion = 27.0;
-						TestTargetID = F2AB66FD307470D100AA0E13;
 					};
 				};
 			};
@@ -200,24 +110,12 @@
 			projectRoot = "";
 			targets = (
 				F2AB66FD307470D100AA0E13 /* ForkliftCalibration */,
-				F2AB670A307470D200AA0E13 /* ForkliftCalibrationTests */,
-				F2AB6714307470D200AA0E13 /* ForkliftCalibrationUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F2AB66FC307470D100AA0E13 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
-			);
-		};
-		F2AB6709307470D200AA0E13 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
-			);
-		};
-		F2AB6713307470D200AA0E13 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -230,29 +128,9 @@
 			files = (
 			);
 		};
-		F2AB6707307470D200AA0E13 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
-		F2AB6711307470D200AA0E13 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F2AB670D307470D200AA0E13 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F2AB66FD307470D100AA0E13 /* ForkliftCalibration */;
-			targetProxy = F2AB670C307470D200AA0E13 /* PBXContainerItemProxy */;
-		};
-		F2AB6717307470D200AA0E13 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F2AB66FD307470D100AA0E13 /* ForkliftCalibration */;
-			targetProxy = F2AB6716307470D200AA0E13 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -437,86 +315,6 @@
 			};
 			name = Release;
 		};
-		F2AB6721307470D200AA0E13 /* Debug configuration for PBXNativeTarget "ForkliftCalibrationTests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.dawxo.ForkliftCalibrationTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ForkliftCalibration.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ForkliftCalibration";
-			};
-			name = Debug;
-		};
-		F2AB6722307470D200AA0E13 /* Release configuration for PBXNativeTarget "ForkliftCalibrationTests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.dawxo.ForkliftCalibrationTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ForkliftCalibration.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ForkliftCalibration";
-			};
-			name = Release;
-		};
-		F2AB6724307470D200AA0E13 /* Debug configuration for PBXNativeTarget "ForkliftCalibrationUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.dawxo.ForkliftCalibrationUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ForkliftCalibration;
-			};
-			name = Debug;
-		};
-		F2AB6725307470D200AA0E13 /* Release configuration for PBXNativeTarget "ForkliftCalibrationUITests" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.dawxo.ForkliftCalibrationUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ForkliftCalibration;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -533,22 +331,6 @@
 			buildConfigurations = (
 				F2AB671E307470D200AA0E13 /* Debug configuration for PBXNativeTarget "ForkliftCalibration" */,
 				F2AB671F307470D200AA0E13 /* Release configuration for PBXNativeTarget "ForkliftCalibration" */,
-			);
-			defaultConfigurationName = Release;
-		};
-		F2AB6720307470D200AA0E13 /* Build configuration list for PBXNativeTarget "ForkliftCalibrationTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F2AB6721307470D200AA0E13 /* Debug configuration for PBXNativeTarget "ForkliftCalibrationTests" */,
-				F2AB6722307470D200AA0E13 /* Release configuration for PBXNativeTarget "ForkliftCalibrationTests" */,
-			);
-			defaultConfigurationName = Release;
-		};
-		F2AB6723307470D200AA0E13 /* Build configuration list for PBXNativeTarget "ForkliftCalibrationUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F2AB6724307470D200AA0E13 /* Debug configuration for PBXNativeTarget "ForkliftCalibrationUITests" */,
-				F2AB6725307470D200AA0E13 /* Release configuration for PBXNativeTarget "ForkliftCalibrationUITests" */,
 			);
 			defaultConfigurationName = Release;
 		};
