@@ -1,7 +1,7 @@
 ////  ParsedNumber.swift
 //
 
-enum ParsedNumber: Equatable {
+nonisolated enum ParsedNumber: Equatable {
     case empty
     case notANumber
     case number(Double)

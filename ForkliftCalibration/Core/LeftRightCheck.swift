@@ -1,7 +1,7 @@
 ////  LeftRightCheck.swift
 //
 
-enum LeftRightCheck {
+nonisolated enum LeftRightCheck {
     static let limitMillimeters = 5.0
     static let adjustmentStep = 0.0001
 

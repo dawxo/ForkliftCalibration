@@ -3,7 +3,7 @@
 
 import Foundation
 
-enum NumberDisplay {
+nonisolated enum NumberDisplay {
     private static let resultMaxDecimals = 15
     private static let offsetMaxDecimals = 10
     private static let trueMinusSign = "\u{2212}"

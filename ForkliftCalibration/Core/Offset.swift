@@ -1,7 +1,7 @@
 ////  Offset.swift
 //
 
-enum Offset {
+nonisolated enum Offset {
     static let subtractedMeters = 0.1
 
     static func adjustedValue(_ value: ParsedNumber) -> Result<Double, InputProblem> {

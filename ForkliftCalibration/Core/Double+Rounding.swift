@@ -1,7 +1,7 @@
 ////  Double+Rounding.swift
 //
 
-extension Double {
+nonisolated extension Double {
     func roundedToTenth() -> Double {
         (self * 10).rounded() / 10
     }

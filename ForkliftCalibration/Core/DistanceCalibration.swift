@@ -1,7 +1,7 @@
 ////  DistanceCalibration.swift
 //
 
-struct DistanceCalibration: Guide, Codable, Equatable {
+nonisolated struct DistanceCalibration: Guide, Codable, Equatable {
     enum Step: Codable, CaseIterable, Comparable {
         case leftRightCheck
         case distanceRun
@@ -17,7 +17,7 @@ struct DistanceCalibration: Guide, Codable, Equatable {
     var distanceRunTryCount = 1
 }
 
-extension DistanceCalibration {
+nonisolated extension DistanceCalibration {
     var leftRightOutcome: LeftRightCheck.Outcome {
         LeftRightCheck.calculate(
             left: ParsedNumber(parsing: left),

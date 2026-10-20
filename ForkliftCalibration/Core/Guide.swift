@@ -1,14 +1,14 @@
 ////  Guide.swift
 //
 
-enum GuideStepState {
+nonisolated enum GuideStepState {
     case done
     case current
     case skipped
     case upcoming
 }
 
-protocol Guide {
+nonisolated protocol Guide {
     associatedtype Step: CaseIterable, Comparable, Hashable
 
     var currentStep: Step { get set }
@@ -17,7 +17,7 @@ protocol Guide {
     func isSkipped(_ step: Step) -> Bool
 }
 
-extension Guide {
+nonisolated extension Guide {
     var stepNumber: Int {
         Step.allCases.count { step in step <= currentStep }
     }

@@ -1,7 +1,7 @@
 ////  AngleCorrection.swift
 //
 
-enum AngleCorrection {
+nonisolated enum AngleCorrection {
     static let spinTurns = 10.0
     static let spinDegrees = spinTurns * 360
     static let maximumAmountDegrees = 180.0

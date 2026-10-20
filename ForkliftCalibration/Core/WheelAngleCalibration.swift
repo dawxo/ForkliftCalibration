@@ -1,7 +1,7 @@
 ////  WheelAngleCalibration.swift
 //
 
-struct WheelAngleCalibration: Guide, Codable, Equatable {
+nonisolated struct WheelAngleCalibration: Guide, Codable, Equatable {
     enum Step: Codable, CaseIterable, Comparable {
         case bind
         case spinCounterclockwise
@@ -25,7 +25,7 @@ struct WheelAngleCalibration: Guide, Codable, Equatable {
     var wheelbase = ""
 }
 
-extension WheelAngleCalibration {
+nonisolated extension WheelAngleCalibration {
     var canContinue: Bool {
         switch currentStep {
         case .bind: isBound
@@ -74,7 +74,7 @@ extension WheelAngleCalibration {
     }
 }
 
-extension WheelAngleCalibration.SpinResult {
+nonisolated extension WheelAngleCalibration.SpinResult {
     var spinOutcome: AngleCorrection.SpinOutcome? {
         switch self {
         case .withinLimit: nil

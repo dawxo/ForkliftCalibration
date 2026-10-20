@@ -1,7 +1,7 @@
 ////  InputProblem.swift
 //
 
-enum InputProblem: Error {
+nonisolated enum InputProblem: Error {
     case empty
     case notANumber
     case notAboveZero

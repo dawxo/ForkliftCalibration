@@ -1,7 +1,7 @@
 ////  DistanceScale.swift
 //
 
-enum DistanceScale {
+nonisolated enum DistanceScale {
     static let limitMillimeters = 5.0
 
     enum Field {
